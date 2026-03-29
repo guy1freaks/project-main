@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { packingChecklist } from './data/packingChecklist'
 import { idfRoles, parentAnchorId, subroleAnchorId } from './data/idfRoles'
 import './App.css'
@@ -26,6 +26,47 @@ function formatHebrewDate(d) {
 function App() {
   const [draftDate, setDraftDate] = useState('')
   const [gender, setGender] = useState('male')
+  const [navOpen, setNavOpen] = useState(false)
+  const burgerRef = useRef(null)
+  const mobileCloseRef = useRef(null)
+
+  const closeNav = useCallback(() => {
+    setNavOpen(false)
+    setTimeout(() => burgerRef.current?.focus(), 0)
+  }, [])
+
+  const toggleNav = useCallback(() => {
+    setNavOpen((o) => !o)
+  }, [])
+
+  useEffect(() => {
+    if (!navOpen) return
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeNav()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [navOpen, closeNav])
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 900px)')
+    const onChange = () => {
+      if (mq.matches) setNavOpen(false)
+    }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  useEffect(() => {
+    if (!navOpen) return
+    const id = requestAnimationFrame(() => mobileCloseRef.current?.focus())
+    return () => cancelAnimationFrame(id)
+  }, [navOpen])
 
   const approxEndDate = useMemo(
     () => computeApproxEndDate(draftDate, SERVICE_YEARS[gender]),
@@ -36,14 +77,50 @@ function App() {
     <div className="app">
       <header className="site-header">
         <div className="site-header-inner">
-          <a className="brand" href="#home">
+          <button
+            ref={burgerRef}
+            type="button"
+            className={`nav-burger ${navOpen ? 'is-open' : ''}`}
+            aria-expanded={navOpen}
+            aria-controls="site-nav"
+            aria-label={navOpen ? 'סגירת תפריט ניווט' : 'פתיחת תפריט ניווט'}
+            onClick={toggleNav}
+          >
+            <span className="nav-burger-icon" aria-hidden>
+              <span className="nav-burger-line" />
+              <span className="nav-burger-line" />
+              <span className="nav-burger-line" />
+            </span>
+          </button>
+          <a className="brand" href="#home" onClick={closeNav}>
             MitgaisimCheck
           </a>
-          <nav className="nav-primary" aria-label="ניווט ראשי">
-            <a className="nav-home" href="#home">
+          <div
+            className={`nav-backdrop ${navOpen ? 'is-open' : ''}`}
+            onClick={closeNav}
+            aria-hidden
+          />
+          <nav
+            id="site-nav"
+            className={`nav-primary ${navOpen ? 'is-open' : ''}`}
+            aria-label="ניווט ראשי"
+          >
+            <div className="nav-mobile-header">
+              <span className="nav-mobile-title">ניווט</span>
+              <button
+                ref={mobileCloseRef}
+                type="button"
+                className="nav-mobile-close"
+                aria-label="סגירת תפריט"
+                onClick={closeNav}
+              >
+                <span className="nav-mobile-close-icon" aria-hidden />
+              </button>
+            </div>
+            <a className="nav-home" href="#home" onClick={closeNav}>
               מה להביא
             </a>
-            <a className="nav-home" href="#roles">
+            <a className="nav-home" href="#roles" onClick={closeNav}>
               תפקידים בצה״ל
             </a>
             {idfRoles.map((parent) => (
@@ -51,6 +128,7 @@ function App() {
                 key={parent.id}
                 className="nav-parent-link"
                 href={`#${parentAnchorId(parent.id)}`}
+                onClick={closeNav}
               >
                 {parent.nameHe}
               </a>
