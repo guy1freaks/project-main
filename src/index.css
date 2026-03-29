@@ -1,0 +1,75 @@
+:root {
+  --bg: #ffffff;
+  --surface: #fffef7;
+  --text: #2d2a20;
+  --muted: #5c5748;
+  --accent: #d4a012;
+  --accent-soft: #f5e6b8;
+  --border: #ebe4c8;
+  --shadow: rgba(45, 42, 32, 0.06);
+
+  --sans: 'Segoe UI', system-ui, sans-serif;
+  --max: 1040px;
+  --header-h: 4rem;
+
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: #b8890e;
+}
+
+button {
+  font: inherit;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  margin: 0;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
