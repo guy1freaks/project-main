@@ -119,7 +119,7 @@ export const packingChecklist = [
   },
   {
     id: 'modiin',
-    title: 'מודיעין / 8200',
+    title: 'מודיעין / טכנולוגיה',
     sections: [
       {
         heading: 'ביגוד',

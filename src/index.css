@@ -1,14 +1,16 @@
 :root {
-  --bg: #ffffff;
-  --surface: #fffef7;
-  --text: #2d2a20;
-  --muted: #5c5748;
-  --accent: #d4a012;
-  --accent-soft: #f5e6b8;
-  --border: #ebe4c8;
-  --shadow: rgba(45, 42, 32, 0.06);
+  --bg: #f6f5f1;
+  --surface: #fffcf6;
+  --text: #1c1b18;
+  --muted: #5a564c;
+  --accent: #8a6f24;
+  --accent-soft: #f0e8d4;
+  --accent-hover: #6e5819;
+  --border: #e2ddd0;
+  --shadow: rgba(28, 27, 24, 0.06);
+  --ring: rgba(138, 111, 36, 0.35);
 
-  --sans: 'Segoe UI', system-ui, sans-serif;
+  --sans: 'Assistant', 'Segoe UI', system-ui, sans-serif;
   --max: 1040px;
   --header-h: 4rem;
 
@@ -33,8 +35,14 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
 html {
-  overflow-x: clip;
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -46,7 +54,7 @@ html {
 
 body {
   margin: 0;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 #root {
@@ -62,7 +70,7 @@ a {
 }
 
 a:hover {
-  color: #b8890e;
+  color: var(--accent-hover, #6e5819);
 }
 
 button {
@@ -74,7 +82,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 400;
+  font-weight: 600;
   margin: 0;
   color: var(--text);
 }

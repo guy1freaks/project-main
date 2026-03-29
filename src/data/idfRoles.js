@@ -1,11 +1,23 @@
 /**
  * Generic IDF branches (parent) and representative subroles inside each unit.
  * Copy is illustrative; verify details with your recruitment office.
+ *
+ * `theme` — צבעי ממשק לכל ענף (מופיעים בגלילה ובניווט). עדכן לפי הצבעים הרשמיים
+ * של היחידה אם יש לך קודי hex מדויקים.
  */
 export const idfRoles = [
   {
     id: 'chayal',
+    emoji: '🪖',
     nameHe: 'חי"ר',
+    theme: {
+      accent: '#3d6b3a',
+      accentSoft: '#e4f0e2',
+      accentHover: '#2d5230',
+      border: '#c8dcc4',
+      surface: '#f7fbf6',
+      shadow: 'rgba(45, 62, 42, 0.08)',
+    },
     summary:
       'זרוע היבשה: יחידות לחימה, אימון והגנה שמבוססות על רגלים, רכב קרבי ולוגיסטיקה צמודה לשדה.',
     subroles: [
@@ -37,7 +49,16 @@ export const idfRoles = [
   },
   {
     id: 'air',
+    emoji: '✈️',
     nameHe: 'חיל האוויר',
+    theme: {
+      accent: '#1565c0',
+      accentSoft: '#e3f2fd',
+      accentHover: '#0d47a1',
+      border: '#bbdefb',
+      surface: '#f5faff',
+      shadow: 'rgba(21, 101, 192, 0.08)',
+    },
     summary:
       'אחראי על הגנה אווירית, תקיפה, סיוע מודיעיני ולוגיסטיקה של מטוסים, מסוקים ומערכות נשק.',
     subroles: [
@@ -63,7 +84,16 @@ export const idfRoles = [
   },
   {
     id: 'navy',
+    emoji: '⚓',
     nameHe: 'חיל הים',
+    theme: {
+      accent: '#0d47a1',
+      accentSoft: '#e3f2fd',
+      accentHover: '#082c64',
+      border: '#90caf9',
+      surface: '#f3f8fd',
+      shadow: 'rgba(13, 71, 161, 0.09)',
+    },
     summary:
       'מבצע סיור, הגנה על חופים ונתיבי שיט, לוחמה בים ותמיכה לוגיסטית בספינות ובבסיסים.',
     subroles: [
@@ -89,7 +119,16 @@ export const idfRoles = [
   },
   {
     id: 'oref',
+    emoji: '🛡️',
     nameHe: 'פיקוד העורף',
+    theme: {
+      accent: '#c45c26',
+      accentSoft: '#fdeee6',
+      accentHover: '#9e4518',
+      border: '#f5ccb0',
+      surface: '#fffaf7',
+      shadow: 'rgba(196, 92, 38, 0.08)',
+    },
     summary:
       'מתמקד בהגנה על האוכלוסייה, התרעה, חילוץ והצלה, והכוונה אזרחית במצבי חירום.',
     subroles: [
@@ -109,7 +148,16 @@ export const idfRoles = [
   },
   {
     id: 'mp',
+    emoji: '👮',
     nameHe: 'המשטרה הצבאית',
+    theme: {
+      accent: '#37474f',
+      accentSoft: '#eceff1',
+      accentHover: '#263238',
+      border: '#cfd8dc',
+      surface: '#fafbfc',
+      shadow: 'rgba(55, 71, 79, 0.09)',
+    },
     summary:
       'אוכפת סדר ומשמעת בבסיסים, מבצעת אבטחה, ביקורת כניסה וטיפול באירועים פנים־צבאיים.',
     subroles: [
@@ -129,7 +177,16 @@ export const idfRoles = [
   },
   {
     id: 'modiin',
+    emoji: '🔍',
     nameHe: 'חיל המודיעין',
+    theme: {
+      accent: '#5e35b1',
+      accentSoft: '#ede7f6',
+      accentHover: '#4527a0',
+      border: '#d1c4e9',
+      surface: '#faf8fd',
+      shadow: 'rgba(94, 53, 177, 0.08)',
+    },
     summary:
       'אוסף ומעבד מידע מבצעי, תומך בהחלטות פיקוד ומספק תמונת מצב לגזרות שונות.',
     subroles: [
@@ -149,7 +206,16 @@ export const idfRoles = [
   },
   {
     id: 'tikshuv',
+    emoji: '💻',
     nameHe: 'אגף התקשוב וההגנה בסייבר',
+    theme: {
+      accent: '#00695c',
+      accentSoft: '#e0f2f1',
+      accentHover: '#004d40',
+      border: '#b2dfdb',
+      surface: '#f3fcfb',
+      shadow: 'rgba(0, 105, 92, 0.08)',
+    },
     summary:
       'מפעיל תשתיות תקשורת, הגנה מסייבר ומערכות מידע שמחברות בין יחידות צה"ל.',
     subroles: [
@@ -169,7 +235,16 @@ export const idfRoles = [
   },
   {
     id: 'logistics',
+    emoji: '📦',
     nameHe: 'אגף הטכנולוגיה והלוגיסטיקה',
+    theme: {
+      accent: '#8d6e63',
+      accentSoft: '#efebe9',
+      accentHover: '#6d4c41',
+      border: '#d7ccc8',
+      surface: '#fdfcfa',
+      shadow: 'rgba(109, 76, 65, 0.08)',
+    },
     summary:
       'מספק אספקה, תחזוקה, רפואה צבאית ותשתיות שמאפשרות לצבא לפעול ברצף.',
     subroles: [
@@ -189,7 +264,16 @@ export const idfRoles = [
   },
   {
     id: 'tomchei',
+    emoji: '🛠️',
     nameHe: 'תומכי לחימה',
+    theme: {
+      accent: '#b8860b',
+      accentSoft: '#faf6e8',
+      accentHover: '#8f6a08',
+      border: '#ecd9a4',
+      surface: '#fffdf7',
+      shadow: 'rgba(184, 134, 11, 0.08)',
+    },
     summary:
       'תפקידים מגוונים שמזינים את מערך הלחימה: מטבחים, משק, מינהל ושירותים.',
     subroles: [
